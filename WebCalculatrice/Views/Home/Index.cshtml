@@ -1,0 +1,35 @@
+﻿@model WebCalculatrice.Logic.Modeles.RationnelModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<br />
+<h1>Calculatrice de rationnels</h1>
+<form asp-controller="Home" asp-action="Index" method="post">
+    <input type="number" min="1" max="10" name="numerateur1" value="1" />
+    <input type="number" min="1" max="10" name="numerateur2" value="1" />
+    <br />
+    <input type="number" min="1" max="10" name="denominateur1" value="1" />
+    <input type="number" min="1" max="10" name="denominateur2" value="1" />
+    <br />
+    <input type="radio" name="operation" value="+" checked>+
+    <input type="radio" name="operation" value="-">-
+    <input type="radio" name="operation" value="X">X
+    <input type="radio" name="operation" value="/">/
+    <br />
+    <input type="submit" />
+</form>
+
+@if (@ViewData["Resultat"] != null)
+{
+    <br />
+    <h1>Résultats</h1>
+    <br />
+    <h2>Le résulat de @ViewData["Numerateur1"] / @ViewData["Denominateur1"] @ViewData["Operation"] @ViewData["Numerateur2"] / @ViewData["Denominateur2"] est : </h2>
+    <h2>Total : @ViewData["Resultat"]</h2>
+}
+else if (@ViewData["MessageErreur"] != null)
+{
+    <br />
+    <h2 class="alert-danger">@ViewData["MessageErreur"]</h2>
+}
+
