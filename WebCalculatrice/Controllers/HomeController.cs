@@ -25,8 +25,7 @@ namespace WebCalculatrice.Controllers
         public IActionResult Index([FromForm] int nunerateur1 )
         {
 
-            ViewData["Numerateur1"] = "nunerateur1";
-            ViewData["Resultat"] = "nunerateur1";
+           
             return View();
         }
     }
